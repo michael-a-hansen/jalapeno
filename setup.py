@@ -3,9 +3,9 @@ from setuptools import setup
 setup(name='jalapeno',
       version='0.0',
       description='Journal and Presentation Figures and Movies with Matplotlib',
-      url='',
-      author='Flying Circus',
-      author_email='flyingcircus@example.com',
+      url='https://github.com/michael-a-hansen/jalapeno',
+      author='Mike Hansen',
+      author_email='mike.hansen.utah@gmail.com',
       license='MIT',
-      packages=['funniest'],
+      packages=['jalapeno'],
       zip_safe=False)
