@@ -6,8 +6,8 @@ import matplotlib.animation as animation
 import os
 
 
-import paladin.colors as pc
-import paladin.spectrum as ps
+import jalapeno.colors as pc
+import jalapeno.spectrum as ps
 
 
 
