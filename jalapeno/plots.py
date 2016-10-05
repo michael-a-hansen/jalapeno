@@ -6,8 +6,8 @@ import matplotlib.animation as animation
 import os
 
 
-import jalapeno.colors as pc
-import jalapeno.spectrum as ps
+import jalapeno.colors as jc
+import jalapeno.spectrum as js
 
 
 
@@ -86,38 +86,38 @@ def square_plane( planesize = 18, spacing = 4, starttick = 4 ):
 
 class PlotColorScheme:
     def __init__( self,
-                  figurebackground = pc.white,
-                  axisbackground = pc.white,
-                  originlines = pc.black,
-                  gridlines = pc.black,
-                  axistext = pc.black ):
-        self.figurebackground = figurebackground
-        self.axisbackground         = axisbackground
-        self.originlines            = originlines
-        self.gridlines              = gridlines
-        self.axistext               = axistext
+                  figurebackground = jc.white,
+                  axisbackground = jc.white,
+                  originlines = jc.black,
+                  gridlines = jc.black,
+                  axistext = jc.black ):
+        self.figurebackground=figurebackground
+        self.axisbackground=axisbackground
+        self.originlines=originlines
+        self.gridlines=gridlines
+        self.axistext=axistext
 
     def __init__( self,
                   colorscheme = 'white'):
         if( colorscheme == 'white' ):
-            figurebackground = pc.white
-            axisbackground = pc.white
-            originlines = pc.black
-            gridlines = pc.black
-            axistext = pc.black
+            figurebackground = jc.white
+            axisbackground = jc.white
+            originlines = jc.black
+            gridlines = jc.black
+            axistext = jc.black
         elif( colorscheme == 'black' ):
-            figurebackground = pc.black
-            axisbackground = pc.black
-            originlines = pc.white
-            gridlines = pc.white
-            axistext = pc.white
+            figurebackground = jc.black
+            axisbackground = jc.black
+            originlines = jc.white
+            gridlines = jc.white
+            axistext = jc.white
         else:
             print( 'Error! Colorscheme: ' + colorscheme + ' not found! Using default white color scheme.' )
-            figurebackground = pc.white
-            axisbackground = pc.white
-            originlines = pc.black
-            gridlines = pc.black
-            axistext = pc.black
+            figurebackground = jc.white
+            axisbackground = jc.white
+            originlines = jc.black
+            gridlines = jc.black
+            axistext = jc.black
 
         self.figurebackground = figurebackground
         self.axisbackground   = axisbackground
@@ -134,7 +134,7 @@ class PlotColorScheme:
 
 def make_complex_plane( planesize = square_plane(),
                         colorscheme = PlotColorScheme(),
-                        markercolor = pc.blueviolet_mah,
+                        markercolor = jc.blueviolet_mah,
                         markerform = 'o',
                         markersize = 8,
                         showticks = True,
@@ -206,7 +206,77 @@ def make_complex_plane( planesize = square_plane(),
 
 
 
+def make_1d_plot(maxx = 1e16,
+                 minx = 0,
+                 maxy = 1e16,
+                 miny = 0,
+                 absAxisScale = 'linear',
+                 ordAxisScale = 'linear',
+                 xname = 'abscissa',
+                 yname = 'ordinate',
+                 colorscheme = PlotColorScheme(),
+                 linecolor = jc.blueviolet_mah,
+                 linewidth = 1,
+                 showticks = True,
+                 showgrid = True):
 
+    # make the figure and put an axis on it
+    fig = plt.figure()
+    ax = fig.add_subplot( 111 )
+    fig.patch.set_facecolor( colorscheme.figurebackground )
+    ax.patch.set_facecolor( colorscheme.axisbackground )
+
+    # axis scaling
+    ax.set_xscale( absAxisScale )
+    ax.set_yscale( ordAxisScale )
+
+    # axis limits
+    ax.set_xlim( [minx, maxx] )
+    ax.set_ylim( [miny, maxy] )
+
+    # ticks, gridlines
+    # lefthalf   = -10**( np.arange( planesize.startticklhp, planesize.planesizelhp, planesize.spacinglhp ) )
+    # righthalf  = +10**( np.arange( planesize.starttickrhp, planesize.planesizerhp, planesize.spacingrhp ) )
+    # tophalf    = -10**( np.arange( planesize.starttickimg, planesize.planesizeimg, planesize.spacingimg ) )
+    # bottomhalf = +10**( np.arange( planesize.starttickimg, planesize.planesizeimg, planesize.spacingimg ) )
+    # xticks = np.hstack( [lefthalf, np.hstack( [0, righthalf] ) ] )
+    # yticks = np.hstack( [bottomhalf, np.hstack( [0, tophalf] ) ] )
+    ax.spines['bottom'].set_color( colorscheme.gridlines )
+    ax.spines['right'] .set_color( colorscheme.axisbackground )
+    ax.spines['left']  .set_color( colorscheme.gridlines )
+    ax.spines['top']   .set_color( colorscheme.axisbackground )
+    ax.tick_params( axis=u'both', which=u'both', length=0 )
+
+    ax.xaxis.label.set_color( colorscheme.axistext )
+    ax.yaxis.label.set_color( colorscheme.axistext )
+    ax.tick_params( colors=colorscheme.axistext )
+
+    # if( ( not showticks ) and showgrid ):
+    #     print( 'error! you are not allowed to ask for a grid without labels.')
+    #     print( 'exiting!!!' )
+    #     exit()
+
+    # if( showticks ):
+    #     ax.xaxis.set_ticks( xticks )
+    #     ax.yaxis.set_ticks( yticks )
+    # else:
+    #     ax.xaxis.set_ticklabels([])
+    #     ax.yaxis.set_ticklabels([])
+
+    if showgrid:
+        ax.grid( showgrid, color=colorscheme.gridlines )
+
+    # axis labels
+    ax.set_xlabel( xname )
+    ax.set_ylabel( yname )
+
+    # add base for line series to modify with spectrum
+    l, = ax.plot( [], [],
+                  linestyle='-',
+                  linewidth=linewidth,
+                  color=linecolor )
+
+    return fig, ax, l
 
 
 def make_zeroD_time_plot_one_var( maxTime = 1e16,
@@ -218,7 +288,7 @@ def make_zeroD_time_plot_one_var( maxTime = 1e16,
                                   abscissaName = 'time',
                                   ordinateName = 'ordinate',
                                   colorscheme = PlotColorScheme(),
-                                  linecolor = pc.blueviolet_mah,
+                                  linecolor = jc.blueviolet_mah,
                                   linethickness = 1,
                                   showticks = True,
                                   showgrid = True ):
@@ -310,7 +380,7 @@ def print_single_spectrum( fig,
                            ext = 'pdf' ):
     if( outputpath == None ):
         outputpath = filepath + '.' + ext
-    realpart, imagpart = ps.load_spectrum( filepath )
+    realpart, imagpart = js.load_spectrum( filepath )
     line.set_data( realpart, imagpart )
     print_fig( fig, outputpath, ext )
 
