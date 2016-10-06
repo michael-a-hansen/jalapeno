@@ -1,5 +1,5 @@
 # jalapeno
-A package to help make figures and movies for journal articles and presentations with Matplotlib, a very common plotting utility for python.
+A package to help make figures and movies for journal articles and presentations with Matplotlib.
 
 jalapeno does not add functionality to Matplotlib, it simply makes it easier to generate precisely sized figures with color schemes.
 And movies for both data analysis (low quality) and presentations (high quality)!
