@@ -38,7 +38,7 @@ spectrumplot.set_data(realpart,imagpart)
 
 # size the figure and print it to pdf
 jp.SquareFigure.forjournal().set_size(fig)
-jp.print_fig( fig, 'a-for-publication', 'pdf' )
+jp.print_fig(fig, 'a-for-publication', ['pdf'])
 
 
 
@@ -56,4 +56,4 @@ spectrumplot.set_data(realpart,imagpart)
 
 # size the figure and print it to pdf
 jp.SquareFigure(width=4,fontsize=12).set_size(fig)
-jp.print_fig( fig, 'a-for-presentation', 'pdf' )
+jp.print_fig(fig, 'a-for-presentation', ['pdf'])

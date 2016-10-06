@@ -2,7 +2,7 @@
 
 This example provides two examples of a simple plot of 1-D data, x and y
 
-1. a publication-ready single column figure
+1. a publication-ready single column figure, which is printed to png (600 dpi), pdf, and svg
 2. a presentation-ready figure on a black background
 
 Four steps are involved in each figure:
@@ -40,11 +40,10 @@ fig, ax, line = jp.make_1d_plot(colorscheme=jp.PlotColorScheme('white'),
 
 # plot the spectrum on the plane we made
 line.set_data(x/np.pi,y)
-line.
 
 # size the figure and print it to pdf
 jp.SquareFigure.forjournal().set_size(fig)
-jp.print_fig( fig, 'xy-for-publication', 'pdf' )
+jp.print_fig(fig, 'xy-for-publication', ['pdf','png','svg'], dpi=600)
 
 
 
@@ -65,4 +64,5 @@ line.set_data(x/np.pi,y)
 
 # size the figure and print it to pdf
 jp.SquareFigure(width=4,fontsize=12).set_size(fig)
-jp.print_fig( fig, 'xy-for-presentation', 'pdf' )
+jp.print_fig(fig, 'xy-for-presentation', exts=['pdf']) # way 1, use print_fig and provide exts=['pdf']
+jp.print_fig_to_pdf(fig, 'xy-for-presentation')        # way 2, use print_fig_to_pdf

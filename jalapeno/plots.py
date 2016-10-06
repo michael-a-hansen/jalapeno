@@ -1,3 +1,10 @@
+"""@package jalapeno.plots
+
+Details forthcoming...
+"""
+
+
+
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,18 +24,27 @@ import jalapeno.spectrum as js
 
 
 
-
 class FigureSize:
+    """@class FigureSize
+
+    Transparent container for figure sizes, namely width, height, and axis fonts.
+    """
+
     def __init__(self,width=3.5,height=3.5,fontsize=7):
         self.figureWidth=width
         self.figureHeight=height
         self.mainFontSize=fontsize
 
     def set_size(self,figure):
-        font = {'size':self.mainFontSize,
-                }
-        matplotlib.rc('font', **font)
+        matplotlib.rc('font', **{'size':self.mainFontSize})
         figure.set_size_inches(self.figureWidth, self.figureHeight)
+
+
+
+
+
+
+
 
 class SquareFigure(FigureSize):
     def __init__(self,width=3.5,fontsize=7):
@@ -60,6 +76,21 @@ class SquareFigure(FigureSize):
             elif columns==2:
                 width=7.16
         return cls(width=width,fontsize=fontsize)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -356,18 +387,16 @@ def make_zeroD_time_plot_one_var( maxTime = 1e16,
 
 
 
-def print_fig(fig, specpath, ext = 'pdf', dpi=1200):
-    fig.savefig(specpath + '.' + ext, facecolor=fig.get_facecolor(), edgecolor='none', dpi=dpi, bbox_inches='tight' )
+def print_fig(fig, file, exts=('pdf'), dpi=1200):
+    for ext in exts:
+        print(ext)
+        fig.savefig(file + '.' + ext, facecolor=fig.get_facecolor(), edgecolor='none', dpi=dpi, bbox_inches='tight' )
 
-# prints pdf, svg, png, and tiff
-def print_all4(fig, specpath, dpi=1200):
-    print_fig(fig, specpath, 'pdf', dpi=dpi)
-    print_fig(fig, specpath, 'svg', dpi=dpi)
-    print_fig(fig, specpath, 'png', dpi=dpi)
-    print_fig(fig, specpath, 'tiff', dpi=dpi)
+def print_fig_to_pdf(fig, file):
+    print_fig(fig,file,['pdf'])
 
-
-
+def print_fig_to_svg(fig, file):
+    print_fig(fig,file,['svg'])
 
 
 

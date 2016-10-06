@@ -8,4 +8,5 @@ setup(name='jalapeno',
       author_email='mike.hansen.utah@gmail.com',
       license='MIT',
       packages=['jalapeno'],
+      install_requires=['numpy','matplotlib'],
       zip_safe=False)
