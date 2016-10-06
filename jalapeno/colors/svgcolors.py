@@ -1,19 +1,10 @@
-import numpy as np
+"""@package jalapeno.colors.svgcolors
 
-def rgb(r, g, b):
-    return np.array([r, g, b]) / 255.
+SVG colors from http://www.december.com/html/spec/colorsvgdec.html
+"""
 
-# my custom colors
-softblue       = rgb( 153, 204, 255 )
-softlimegreen  = rgb( 178, 255, 102 )
-softyellow     = rgb( 255, 255, 153 )
-softorange     = rgb( 255, 204, 153 )
-darkturquoise  = rgb(   0, 153, 153 )
-violet         = rgb( 153,  51, 255 )
-lightviolet    = rgb( 178, 102, 255 )
-blueviolet_mah = rgb(  89,  66, 238 )
+from jalapeno.colors.representations import rgb
 
-# SVG colors from http://www.december.com/html/spec/colorsvgdec.html
 black                = rgb(0, 0, 0)
 navy                 = rgb(0, 0, 128)
 darkblue             = rgb(0, 0, 139)

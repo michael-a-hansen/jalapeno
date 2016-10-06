@@ -1,12 +1,12 @@
-from setuptools import setup
+from distutils.core import setup
 
 setup(name='jalapeno',
       version='0.0',
-      description='Journal and Presentation Figures and Movies with Matplotlib',
+      description='Journal and presentation figures and movies with Matplotlib',
       url='https://github.com/michael-a-hansen/jalapeno',
       author='Mike Hansen',
       author_email='mike.hansen.utah@gmail.com',
       license='MIT',
-      packages=['jalapeno'],
+      packages=['jalapeno','jalapeno.colors'],
       install_requires=['numpy','matplotlib'],
       zip_safe=False)

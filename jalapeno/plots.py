@@ -14,8 +14,8 @@ import os
 
 
 import jalapeno.colors as jc
+import jalapeno.colors.mike as jcm
 import jalapeno.spectrum as js
-
 
 
 
@@ -117,11 +117,11 @@ def square_plane( planesize = 18, spacing = 4, starttick = 4 ):
 
 class PlotColorScheme:
     def __init__( self,
-                  figurebackground = jc.white,
-                  axisbackground = jc.white,
-                  originlines = jc.black,
-                  gridlines = jc.black,
-                  axistext = jc.black ):
+                  figurebackground = 'w',
+                  axisbackground = 'w',
+                  originlines = 'k',
+                  gridlines = 'k',
+                  axistext = 'k' ):
         self.figurebackground=figurebackground
         self.axisbackground=axisbackground
         self.originlines=originlines
@@ -131,24 +131,24 @@ class PlotColorScheme:
     def __init__( self,
                   colorscheme = 'white'):
         if( colorscheme == 'white' ):
-            figurebackground = jc.white
-            axisbackground = jc.white
-            originlines = jc.black
-            gridlines = jc.black
-            axistext = jc.black
+            figurebackground = 'w'
+            axisbackground = 'w'
+            originlines = 'k'
+            gridlines = 'k'
+            axistext = 'k'
         elif( colorscheme == 'black' ):
-            figurebackground = jc.black
-            axisbackground = jc.black
-            originlines = jc.white
-            gridlines = jc.white
-            axistext = jc.white
+            figurebackground = 'k'
+            axisbackground = 'k'
+            originlines = 'w'
+            gridlines = 'w'
+            axistext = 'w'
         else:
             print( 'Error! Colorscheme: ' + colorscheme + ' not found! Using default white color scheme.' )
-            figurebackground = jc.white
-            axisbackground = jc.white
-            originlines = jc.black
-            gridlines = jc.black
-            axistext = jc.black
+            figurebackground = 'w'
+            axisbackground = 'w'
+            originlines = 'k'
+            gridlines = 'k'
+            axistext = 'k'
 
         self.figurebackground = figurebackground
         self.axisbackground   = axisbackground
@@ -165,7 +165,7 @@ class PlotColorScheme:
 
 def make_complex_plane( planesize = square_plane(),
                         colorscheme = PlotColorScheme(),
-                        markercolor = jc.blueviolet_mah,
+                        markercolor = jcm.blueviolet,
                         markerform = 'o',
                         markersize = 8,
                         showticks = True,
@@ -246,7 +246,7 @@ def make_1d_plot(maxx = 1e16,
                  xname = 'abscissa',
                  yname = 'ordinate',
                  colorscheme = PlotColorScheme(),
-                 linecolor = jc.blueviolet_mah,
+                 linecolor = jcm.blueviolet,
                  linewidth = 1,
                  showticks = True,
                  showgrid = True):
@@ -319,7 +319,7 @@ def make_zeroD_time_plot_one_var( maxTime = 1e16,
                                   abscissaName = 'time',
                                   ordinateName = 'ordinate',
                                   colorscheme = PlotColorScheme(),
-                                  linecolor = jc.blueviolet_mah,
+                                  linecolor = jcm.blueviolet,
                                   linethickness = 1,
                                   showticks = True,
                                   showgrid = True ):

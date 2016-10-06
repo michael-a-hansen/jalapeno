@@ -17,7 +17,7 @@ Note that if you lack a system-wide installation of the paladin packages
 '''
 
 # load the jalapeno modules
-import jalapeno.colors as jc
+import jalapeno.colors.svgcolors as jc
 import jalapeno.plots as jp
 import jalapeno.spectrum as js
 
