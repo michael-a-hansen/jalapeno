@@ -62,29 +62,31 @@ class FigColors:
 
         return cls(figbg, axisbg, legendbg, axistext, legendtext, gridlines, legendedge)
 
-    def apply(self, fig, ax):
-        fig.patch.set_facecolor(self.figbg)
+    def apply(self, fig=None, ax=None):
+        if fig is not None:
+            fig.patch.set_facecolor(self.figbg)
 
-        ax.patch.set_facecolor(self.axisbg)
+        if ax is not None:
+            ax.patch.set_facecolor(self.axisbg)
 
-        ax.spines['bottom'].set_color(self.axisbg)
-        ax.spines['right'].set_color(self.axisbg)
-        ax.spines['left'].set_color(self.axisbg)
-        ax.spines['top'].set_color(self.axisbg)
+            ax.spines['bottom'].set_color(self.axisbg)
+            ax.spines['right'].set_color(self.axisbg)
+            ax.spines['left'].set_color(self.axisbg)
+            ax.spines['top'].set_color(self.axisbg)
 
-        ax.xaxis.label.set_color(self.axistext)
-        ax.yaxis.label.set_color(self.axistext)
-        ax.title.set_color(self.axistext)
+            ax.xaxis.label.set_color(self.axistext)
+            ax.yaxis.label.set_color(self.axistext)
+            ax.title.set_color(self.axistext)
 
-        ax.tick_params(colors=self.axistext)
-        ax.xaxis.grid(color=self.gridlines)
-        ax.yaxis.grid(color=self.gridlines)
+            ax.tick_params(colors=self.axistext)
+            ax.xaxis.grid(color=self.gridlines)
+            ax.yaxis.grid(color=self.gridlines)
 
-        legend = ax.get_legend()
-        if legend is not None:
-            legend.get_frame().set_facecolor(self.legendbg)
-            legend.get_title().set_color(self.legendtext)
-            legend.legendPatch.set_edgecolor(self.legendedge)
-            labels = legend.get_texts()
-            for label in labels:
-                label.set_color(self.legendtext)
+            legend = ax.get_legend()
+            if legend is not None:
+                legend.get_frame().set_facecolor(self.legendbg)
+                legend.get_title().set_color(self.legendtext)
+                legend.legendPatch.set_edgecolor(self.legendedge)
+                labels = legend.get_texts()
+                for label in labels:
+                    label.set_color(self.legendtext)

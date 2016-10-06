@@ -10,6 +10,23 @@ import matplotlib.pyplot as plt
 import jalapeno.plots.colorscheme as jpc
 
 
+def inspect_artist(artist):
+    print(artist)
+    matplotlib.artist.getp(artist)
+
+def print_fig(fig, file, exts=['pdf'], dpi=1200):
+    for ext in exts:
+        fig.savefig(file + '.' + ext, facecolor=fig.get_facecolor(), edgecolor='none', dpi=dpi, bbox_inches='tight')
+
+
+def print_fig_to_pdf(fig, file):
+    print_fig(fig, file, ['pdf'])
+
+
+def print_fig_to_svg(fig, file):
+    print_fig(fig, file, ['svg'])
+
+
 class FigureSize:
     """@class FigureSize
 
@@ -33,7 +50,7 @@ class SquareFigure(FigureSize):
     """
 
     def __init__(self, width=3.5, fontsize=7):
-        super(SquareFigure,self).__init__(width, width, fontsize)
+        super(SquareFigure, self).__init__(width, width, fontsize)
 
     @classmethod
     def forjournal(cls,
@@ -59,19 +76,6 @@ class SquareFigure(FigureSize):
             elif columns == 2:
                 width = 7.16
         return cls(width=width, fontsize=fontsize)
-
-
-def print_fig(fig, file, exts=['pdf'], dpi=1200):
-    for ext in exts:
-        fig.savefig(file + '.' + ext, facecolor=fig.get_facecolor(), edgecolor='none', dpi=dpi, bbox_inches='tight')
-
-
-def print_fig_to_pdf(fig, file):
-    print_fig(fig, file, ['pdf'])
-
-
-def print_fig_to_svg(fig, file):
-    print_fig(fig, file, ['svg'])
 
 
 # This class, the square_plane function, and make_complex_plane should be moved.
