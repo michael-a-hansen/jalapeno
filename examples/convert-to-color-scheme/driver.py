@@ -19,7 +19,7 @@ plt.xlabel('abscissa')
 plt.ylabel('ordinate')
 plt.title('example!')
 
-# grab the figure and axis for convenience
+# grab the figure and axes for convenience
 fig = plt.gcf()
 ax = plt.gca()
 

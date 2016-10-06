@@ -19,7 +19,7 @@ plt.plot([1, 2, 4, 7], 'r', label='curve 1')
 plt.plot([1, 2, 3, 4], 'b', label='curve 2')
 plt.legend(loc='upper left')
 
-# grab the figure and axis for convenience
+# grab the figure and axes for convenience
 fig = plt.gcf()
 ax = plt.gca()
 
