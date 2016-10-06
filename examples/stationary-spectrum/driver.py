@@ -10,16 +10,12 @@ Four steps are involved in each figure:
 - construct a complex plane (figure, axis, line series) for the spectrum
 - size the figure and font
 - print the figure to a pdf
-
-
-Note that if you lack a system-wide installation of the paladin packages
-
 '''
 
-# load the jalapeno modules
+
 import jalapeno.colors.svgcolors as jc
-import jalapeno.plots as jp
-import jalapeno.spectrum as js
+import jalapeno.plots.plots as jp
+import jalapeno.data.spectrum as js
 
 
 # load the spectrum for both purposes
