@@ -34,7 +34,7 @@ fig, ax, line = jpp.make_1d_plot(linecolor=jc.darkorange,
 line.set_data(x/np.pi,y)
 
 # size the figure and print it to pdf
-jpp.SquareFigure.forjournal().set_size(fig)
+jpp.SquareFigure().set_size(fig)
 jpp.print_fig(fig, 'xy-for-publication', ['pdf', 'png', 'svg'], dpi=600)
 
 # make another 1d plot
@@ -56,5 +56,5 @@ jpp.print_fig(fig, 'xy-for-presentation', exts=['pdf'])  # way 1, use print_fig 
 jpp.print_fig_to_pdf(fig, 'xy-for-presentation')         # way 2, use print_fig_to_pdf
 
 # convert it to a crazy color scheme, print again
-fig, ax = jpc.FigColorScheme.scheme('crazy').apply(fig, ax)
+jpc.FigColorScheme.scheme('crazy').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'xy-for-fun')

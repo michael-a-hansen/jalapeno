@@ -15,8 +15,8 @@ import jalapeno.colors.svgcolors as jcs
 
 
 # generate the plot
-plt.plot([1,2,4,7], 'r', label='curve 1')
-plt.plot([1,2,3,4], 'b', label='curve 2')
+plt.plot([1, 2, 4, 7], 'r', label='curve 1')
+plt.plot([1, 2, 3, 4], 'b', label='curve 2')
 plt.legend(loc='upper left')
 
 # grab the figure and axis for convenience
@@ -30,8 +30,8 @@ jpp.print_fig_to_pdf(fig, 'result-white-default-legend')
 jpc.FigColorScheme.scheme('black').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-black-default-legend')
 
-jpc.FigColorScheme.scheme('black',legendbg=jcs.limegreen).apply(fig, ax)
+jpc.FigColorScheme.scheme('black', legendbg=jcs.limegreen).apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-black-lime-legend')
 
-jpc.FigColorScheme.scheme('white',legendbg=jcs.chocolate,legendtext='w').apply(fig, ax)
+jpc.FigColorScheme.scheme('white', legendbg=jcs.chocolate, legendtext='w').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-white-brown-legend')

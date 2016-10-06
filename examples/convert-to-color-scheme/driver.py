@@ -14,20 +14,24 @@ import jalapeno.plots.plots as jpp
 
 
 # generate the plot
-plt.plot([1,2,4,7])
+plt.plot([1, 2, 4, 7])
 plt.xlabel('abscissa')
 plt.ylabel('ordinate')
 plt.title('example!')
 
+# grab the figure and axis for convenience
+fig = plt.gcf()
+ax = plt.gca()
+
 # size the figure
-jpp.SquareFigure(width=4, fontsize=12).set_size(plt.gcf())
+jpp.SquareFigure(width=4, fontsize=12).set_size(fig)
 
 # produce the figures with different color schemes
-jpc.FigColorScheme.scheme('black').apply(plt.gcf(), plt.gca())
-jpp.print_fig_to_pdf(plt.gcf(), 'fig-black')
+jpc.FigColorScheme.scheme('black').apply(fig, ax)
+jpp.print_fig_to_pdf(fig, 'fig-black')
 
-jpc.FigColorScheme.scheme('white').apply(plt.gcf(), plt.gca())
-jpp.print_fig_to_pdf(plt.gcf(), 'fig-white')
+jpc.FigColorScheme.scheme('white').apply(fig, ax)
+jpp.print_fig_to_pdf(fig, 'fig-white')
 
-jpc.FigColorScheme.scheme('crazy').apply(plt.gcf(), plt.gca())
-jpp.print_fig_to_pdf(plt.gcf(), 'fig-crazy')
+jpc.FigColorScheme.scheme('crazy').apply(fig, ax)
+jpp.print_fig_to_pdf(fig, 'fig-crazy')
