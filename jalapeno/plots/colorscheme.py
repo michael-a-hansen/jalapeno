@@ -6,7 +6,7 @@ Details on implementation (the 'scheme' classmethod especially) forthcoming...
 """
 
 
-class FigColorScheme:
+class FigColors:
     def __init__(self,
                  figbg='w',
                  axisbg='w',

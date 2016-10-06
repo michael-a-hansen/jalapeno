@@ -99,7 +99,7 @@ def square_plane(planesize=18, spacing=4, starttick=4):
 
 
 def make_complex_plane(planesize=square_plane(),
-                       colorscheme=jpc.FigColorScheme(),
+                       colorscheme=jpc.FigColors(),
                        markercolor='b',
                        markerform='o',
                        markersize=8,
@@ -166,7 +166,7 @@ def make_1d_plot(maxx=1e16,
                  yscale='linear',
                  xname='abscissa',
                  yname='ordinate',
-                 colorscheme=jpc.FigColorScheme(),
+                 colorscheme=jpc.FigColors(),
                  linecolor='b',
                  linewidth=1,
                  showgrid=True):

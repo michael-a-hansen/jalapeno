@@ -27,11 +27,11 @@ ax = plt.gca()
 jpp.SquareFigure(width=4, fontsize=12).set_size(fig)
 
 # produce the figures with different color schemes
-jpc.FigColorScheme.scheme('black').apply(fig, ax)
+jpc.FigColors.scheme('black').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'fig-black')
 
-jpc.FigColorScheme.scheme('white').apply(fig, ax)
+jpc.FigColors.scheme('white').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'fig-white')
 
-jpc.FigColorScheme.scheme('crazy').apply(fig, ax)
+jpc.FigColors.scheme('crazy').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'fig-crazy')

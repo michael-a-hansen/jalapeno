@@ -38,7 +38,7 @@ jpp.SquareFigure().set_size(fig)
 jpp.print_fig(fig, 'xy-for-publication', ['pdf', 'png', 'svg'], dpi=600)
 
 # make another 1d plot
-fig, ax, line = jpp.make_1d_plot(colorscheme=jpc.FigColorScheme.scheme('black'),
+fig, ax, line = jpp.make_1d_plot(colorscheme=jpc.FigColors.scheme('black'),
                                  linecolor=jc.coral,
                                  linewidth=4,
                                  showgrid='off',
@@ -54,7 +54,3 @@ line.set_data(x/np.pi, y)
 jpp.SquareFigure(width=4, fontsize=12).set_size(fig)
 jpp.print_fig(fig, 'xy-for-presentation', exts=['pdf'])  # way 1, use print_fig and provide exts=['pdf']
 jpp.print_fig_to_pdf(fig, 'xy-for-presentation')         # way 2, use print_fig_to_pdf
-
-# convert it to a crazy color scheme, print again
-jpc.FigColorScheme.scheme('crazy').apply(fig, ax)
-jpp.print_fig_to_pdf(fig, 'xy-for-fun')

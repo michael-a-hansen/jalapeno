@@ -24,14 +24,14 @@ fig = plt.gcf()
 ax = plt.gca()
 
 # print figures with different legend colors
-jpc.FigColorScheme.scheme('white').apply(fig, ax)
+jpc.FigColors.scheme('white').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-white-default-legend')
 
-jpc.FigColorScheme.scheme('black').apply(fig, ax)
+jpc.FigColors.scheme('black').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-black-default-legend')
 
-jpc.FigColorScheme.scheme('black', legendbg=jcs.limegreen).apply(fig, ax)
+jpc.FigColors.scheme('black', legendbg=jcs.limegreen).apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-black-lime-legend')
 
-jpc.FigColorScheme.scheme('white', legendbg=jcs.chocolate, legendtext='w').apply(fig, ax)
+jpc.FigColors.scheme('white', legendbg=jcs.chocolate, legendtext='w').apply(fig, ax)
 jpp.print_fig_to_pdf(fig, 'result-white-brown-legend')
