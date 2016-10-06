@@ -147,7 +147,7 @@ def make_complex_plane(planesize=square_plane(),
         ax.xaxis.set_ticklabels([])
         ax.yaxis.set_ticklabels([])
 
-    fig, ax = colorscheme.apply(fig, ax)
+    colorscheme.apply(fig, ax)
 
     ax.grid(showgrid)
 
@@ -213,7 +213,7 @@ def make_1d_plot(maxx = 1e16,
     #     ax.xaxis.set_ticklabels([])
     #     ax.yaxis.set_ticklabels([])
 
-    fig, ax = colorscheme.apply(fig, ax)
+    colorscheme.apply(fig, ax)
 
     ax.grid(showgrid)
 
@@ -278,7 +278,7 @@ def make_zeroD_time_plot_one_var( maxTime = 1e16,
     #     ax.xaxis.set_ticklabels([])
     #     ax.yaxis.set_ticklabels([])
 
-    fig, ax = colorscheme.apply(fig, ax)
+    colorscheme.apply(fig, ax)
 
     ax.grid(showgrid)
 

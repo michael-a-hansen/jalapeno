@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import jalapeno.plots.colorscheme as jpc
 import jalapeno.plots.plots as jpp
 
+
 # generate the plot
 plt.plot([1,2,4,7])
 plt.xlabel('abscissa')
