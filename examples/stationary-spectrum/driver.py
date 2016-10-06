@@ -13,42 +13,43 @@ Four steps are involved in each figure:
 '''
 
 
-import jalapeno.colors.svgcolors as jc
-import jalapeno.plots.plots as jp
+import jalapeno.colors.svgcolors as jcs
+import jalapeno.plots.plots as jpp
+import jalapeno.plots.complex_plane as jpcp
 import jalapeno.plots.colorscheme as jpc
-import jalapeno.data.spectrum as js
+import jalapeno.data.spectrum as jds
 
 
 # load the spectrum for both purposes
-realpart, imagpart = js.load_spectrum('a.spectrum')
+realpart, imagpart = jds.load_spectrum('a.spectrum')
 
 
 # First we'll make a publication-ready figure with a white background
 
 # make a complex plane for the spectrum
-fig, ax, spectrumplot = jp.make_complex_plane(colorscheme=jpc.FigColors.scheme('white'),
-                                              markercolor=jc.darkblue,
-                                              markersize=4)
+fig, ax, spectrumplot = jpcp.make_complex_plane(colorscheme=jpc.FigColors.scheme('white'),
+                                                markercolor=jcs.darkblue,
+                                                markersize=4)
 
 # plot the spectrum on the plane we made
 spectrumplot.set_data(realpart, imagpart)
 
 # size the figure and print it to pdf
-jp.SquareFigure.forjournal(standard='nature').set_size(fig)
-jp.print_fig(fig, 'a-for-publication', ['pdf'])
+jpp.SquareFigure.forjournal(standard='nature').set_size(fig)
+jpp.print_fig(fig, 'a-for-publication', ['pdf'])
 
 # And now we'll make a presentation-ready figure with a black background
 
 # make a complex plane for the spectrum
-fig, ax, spectrumplot = jp.make_complex_plane(colorscheme=jpc.FigColors.scheme('black'),
-                                              markercolor=jc.springgreen,
-                                              markersize=6,
-                                              planesize=jp.square_plane(18, 6, 6),
-                                              showgrid=False)
+fig, ax, spectrumplot = jpcp.make_complex_plane(colorscheme=jpc.FigColors.scheme('black'),
+                                                markercolor=jcs.springgreen,
+                                                markersize=6,
+                                                planesize=jpcp.square_plane(18, 6, 6),
+                                                showgrid=False)
 
 # plot the spectrum on the new plane
 spectrumplot.set_data(realpart, imagpart)
 
 # size the figure and print it to pdf
-jp.SquareFigure(width=4, fontsize=12).set_size(fig)
-jp.print_fig(fig, 'a-for-presentation', ['pdf'])
+jpp.SquareFigure(width=4, fontsize=12).set_size(fig)
+jpp.print_fig(fig, 'a-for-presentation', ['pdf'])
